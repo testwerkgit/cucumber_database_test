@@ -30,18 +30,19 @@ public class DatabaseTestSteps {
 
     @When("^I select the following data$")
     public void iSelectTheFollowingData(DataTable selectdata)   {
-        String firstname = selectdata.getGherkinRows().get(1).getCells().get(1);
-        String lastname = selectdata.getGherkinRows().get(2).getCells().get(1);
-        employee.getEmployees(firstname, lastname);
+        String emp_no = selectdata.getGherkinRows().get(1).getCells().get(1);
+        employee.getFullEmployee(emp_no);
     }
 
     @Then("^I get the following data$")
     public void iGetTheFollowingData(DataTable resultdata)   {
-        String firstname = resultdata.getGherkinRows().get(1).getCells().get(1);
-        String lastname = resultdata.getGherkinRows().get(2).getCells().get(1);
-        String email = resultdata.getGherkinRows().get(3).getCells().get(1);
-        String birthdate = resultdata.getGherkinRows().get(4).getCells().get(1);
-        employee.checkEmployees(firstname, lastname, email, birthdate);
+        String emp_no = resultdata.getGherkinRows().get(1).getCells().get(1);
+        String first_name = resultdata.getGherkinRows().get(2).getCells().get(1);
+        String last_name = resultdata.getGherkinRows().get(3).getCells().get(1);
+        String hire_date = resultdata.getGherkinRows().get(4).getCells().get(1);
+        String birth_date = resultdata.getGherkinRows().get(5).getCells().get(1);
+        String gender = resultdata.getGherkinRows().get(6).getCells().get(1);
+        employee.checkEmployees(emp_no,first_name,last_name,hire_date,birth_date,gender);
 
     }
 }
